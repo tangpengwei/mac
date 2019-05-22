@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--  <meta charset="UTF-8"> -->
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        #LBT{
+            width: 812px;
+            border: 3px #ccc solid;
+            position: relative;
+        }
+
+        #LBT a{
+            text-decoration: none;
+
+        }
+
+        #LBT .tu{
+            display: none;
+            height: 402px;
+        }
+
+        #LBT .tu.active{
+            display: block;
+        }
+
+        #LBT #XXK{
+            height: 50px;
+        }
+
+        #LBT #XXK #xk div{
+            list-style-type: none;
+            float: left;
+            width: 160px;
+            border-right: 3px solid #ccc;
+            line-height: 50px;
+            text-align: center;
+        }
+       /* #LBT #XXK #xk div>a{
+            width: 160px;
+        }*/
+        #LBT #XXK #xk div.active{
+            background-color: #e43126;
+        }
+        #LBT #XXK #xk div:last-child{
+            border: none;
+        }
+        #LBT #title{
+            position: absolute;
+            bottom: 0px;
+        }
+        #LBT #title .t{
+            display: none;
+            height: 40px;
+            background: rgba(10, 10, 10, 0.3);
+            width: 802px;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+        #LBT #title a{
+            color: snow;
+        }
+        #LBT #title a:hover{
+            text-decoration: underline;
+        }
+        #LBT #title .t.active{
+            display: block;
+        }
+        #LBT #cycle{
+            position: absolute;
+            bottom: 0px;
+            right: 10px;
+            height: 40px;
+
+        }
+        #LBT #cycle div{
+            height: 16px;
+            width: 16px;
+            background: rgba(100, 100, 100, 0.9);
+            float: left;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-top: 12px;
+        }
+        #LBT #cycle div.active{
+            background: rgba(250, 250, 250, 0.8);
+        }
+        #img div a img{
+            width: 812px;
+            height: 402px;
+        }
+        #left{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+            background-image: url(/Users/qingyun/Desktop/C5393A22-A1FA-4DF9-9970-B157E80AAC04.png);
+            top: 200px;
+
+        }
+        #right{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+            background-image: url(/Users/qingyun/Desktop/C5393A22-A1FA-4DF9-9970-B157E80AAC04.png);
+            top: 200px;
+            right: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="LBT">
+    <div id="XXK">
+        <div id="xk">
+            <div class="active"><a id="ss" href="">第1个</a></div>
+            <div><a href="" id="ss">第2个</a></div>
+            <div><a href="" id="ss">第3个</a></div>
+            <div><a href="" id="ss">第4个</a></div>
+            <div><a href="" id="ss">第5个</a></div>
+        </div>
+    </div>
+    <div id="img">
+        <div class="tu active">
+            <a href="">
+                <img src="https://ossweb-img.qq.com/upload/adw/image/20190403/47439db87ae1ff9d3809aeec887194c0-80.jpg?_r=1555382511183" alt="">
+            </a>
+        </div>
+        <div class="tu">
+            <a href="">
+                <img src="https://ossweb-img.qq.com/upload/adw/image/20190403/09cf589c9657c8f234cadc03381532e7-80.jpg?_r=1555382511183" alt="">
+            </a>
+        </div>
+        <div class="tu">
+            <a href="">
+                <img src="https://ossweb-img.qq.com/upload/adw/image/20190403/ffd24ab2e72099b7299609a8ba865498-80.jpg?_r=1555382511183" alt="">
+            </a>
+        </div>
+        <div class="tu">
+            <a href="">
+                <img src="https://ossweb-img.qq.com/upload/adw/image/20190403/4048c7e8ccc3a3bd2b337377e3ad9a50-80.jpg?_r=1555382511183" alt="">
+            </a>
+        </div>
+        <div class="tu">
+            <a href="">
+                <img src="https://ossweb-img.qq.com/upload/adw/image/20190403/f0905fd96e3a388a7631613e8d795b19-80.jpg?_r=1555382511183" alt="">
+            </a>
+        </div>
+    </div>
+    <div id="title">
+        <div class="t active"><a href="">这里是各个图的标题啊1</a></div>
+        <div class="t"><a href="">这里是各个图的标题啊2</a></div>
+        <div class="t"><a href="">这里是各个图的标题啊3</a></div>
+        <div class="t"><a href="">这里是各个图的标题啊4</a></div>
+        <div class="t"><a href="">这里是各个图的标题啊5</a></div>
+    </div>
+    <div id="cycle">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <div id="left"></div>
+    <div id="right"></div>
+    
+</div>
+
+
+<script>
+    var img = document.querySelectorAll('#img div');
+    var cycle = document.querySelectorAll('#cycle div');
+    var title = document.querySelectorAll('#title div');
+    var XXK = document.querySelectorAll('#xk div');
+    var a;
+    var j;
+     a = setInterval(function () {
+        // clearInterval(x);
+        var index = getIndex();
+
+        var next = index + 1 ;
+        if (next>4) {
+            next =0;
+        }
+        GD(index,next);
+    },2000)
+    var dd=document.getElementById('cycle');
+    dd.addEventListener('mouseover',ting);
+    function ting(e){
+        var point =e.target;
+        console.log(point)
+        if (point.getAttribute('id') != 'cycle') {
+            var num = overObj(point ,cycle);
+            console.log(cycle)
+            var current = getIndex();
+            console.log(current);
+            GD(current,num);
+            clearInterval(a);
+            // clearInterval(x);
+
+        }
+    }
+    dd.addEventListener('mouseout',ks);
+    function ks(g){
+        // clearInterval(x);
+        var point=g.target;
+        if (point.getAttribute('id')!='cycle') {
+          a =  setInterval(function(){
+                var index = getIndex();
+                var next = index+1;
+                if (next>4) {
+                    next=0;
+                }
+                GD(index,next);
+            },1000)
+        }
+
+    }
+
+
+
+    function overObj(obj ,Objects){
+        for (var i = 0; i < Objects.length; i++) {
+            if (obj==Objects[i]) {
+                return i;
+            }
+           
+        }
+    }
+
+    function GD(index,next) {
+        img[index].classList.remove('active');
+        img[next].classList.add('active');
+
+
+        cycle[index].classList.remove('active');
+        cycle[next].classList.add('active');
+
+
+        title[index].classList.remove('active');
+        title[next].classList.add('active');
+
+        XXK[index].classList.remove('active');
+        XXK[next].classList.add('active');
+    }
+
+
+    function getIndex() {
+        for (var i = 0; i <img.length ; i++) {
+            // console.log(img[i].classList.contains('active'));
+            if (img[i].classList.contains('active')){
+                return i
+            }
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var yy = document.getElementById('xk');
+// console.dir(yy)
+    yy.addEventListener('mouseover',ing,false);
+    function ing(w){
+        clearInterval(j);
+        clearInterval(a);
+        // yy.stopPropagation();
+        // yy.stopImmediatePropagation();
+        var point =w.target;
+        console.log(w);
+        if (point.getAttribute('id') != 'xk'&& point.getAttribute('id') != 'ss') {
+            console.log(w.target.parentElement.target)
+                
+                var num1 = overObj(point ,XXK);
+                  console.log(point)
+                 console.log(XXK)
+            var current1 = getIndex();
+            // console.log(current);
+            GD(current1,num1);
+            // clearInterval(j);
+            // clearInterval(a);
+
+            
+
+        }
+        
+    }
+   
+    yy.addEventListener('mouseout',sy);
+    function sy(w){
+        // clearInterval(x);
+        var point=w.target;
+        if (point.getAttribute('id')!='xk') {
+             if (point.getAttribute('id') != 'ss'){
+               j =  setInterval(function(){
+                var index = getIndex();
+                var next = index+1;
+                if (next>4) {
+                    next=0;
+                }
+                GD(index,next);
+            },1000)
+            }
+          
+        }
+
+    }
+
+    var onRight=document.getElementById('right');
+    var onLeft=document.getElementById('left');
+   onRight.onmouseover=function(){
+    clearInterval(a);
+   }
+
+    onRight.onclick= function (){
+        
+                var a = getIndex();
+                var b = a + 1;
+                clearInterval(a);
+                console.log(b)
+                if (b==5) {
+                     b=0;
+                   
+                }
+                 GD(a,b);
+            
+    }
+    onRight.onmouseout=function(){
+        a = setInterval(function () {
+        var index = getIndex();
+
+        var next = index + 1 ;
+        if (next>4) {
+            next =0;
+        }
+        GD(index,next);
+    },2000)
+    }
+    onLeft.onmouseover=function(){
+    clearInterval(a);
+   }
+
+    onLeft.onclick= function (){
+        
+                var a = getIndex();
+                var b = a - 1;
+                // var num = overObj(a ,);
+                // var current = getIndex();
+                // GD(a,b);
+                clearInterval(a);
+                // clearInterval(x);
+                console.log(b)
+                if (b==-1) {
+                     b=4;
+                   
+                }
+                 GD(a,b);
+            
+    }
+    onLeft.onmouseout=function(){
+        a = setInterval(function () {
+        // clearInterval(x);
+        var index = getIndex();
+
+        var next = index + 1 ;
+        if (next>4) {
+            next =0;
+        }
+        GD(index,next);
+    },2000)
+    }
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

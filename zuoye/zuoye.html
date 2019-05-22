@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF8">
+</head>
+<body>
+
+	<button id="start">开始</button>
+	<button id="stop">记录</button>
+	<button id="reset">复位</button>
+	<button id="clear">暂停</button>
+	<button id="wipe-data">清空</button>
+	<span id="hour">00</span>
+	<span >:</span>
+	<span id="miunte">00</span>
+	<span>:</span>
+	<span id="seconds">00</span>
+	<span>.</span>
+	<span id="heroic">000</span>
+	<div id="zhanting"></div>
+	<div id="yanse"></div>
+
+
+
+
+
+	<script type="text/javascript">
+
+
+
+		var arrySeccode=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9];
+		function  Seccode(){
+			var a = '';
+			for (var i = 0; i < 6; i++) {
+				a = a +arrySeccode[Math.floor(Math.random()*arrySeccode.length)]
+			}
+			return a;
+		}console.log(Seccode());
+
+
+
+
+
+
+
+
+
+
+		var start = document.getElementById('start');
+		var stop = document.getElementById('stop');
+		var reset = document.getElementById('reset');
+		var zhanting = document.getElementById('zhanting');
+		var yanse = document.getElementById('yanse');
+		var clear = document.getElementById('clear');
+		var wipeData = document.getElementById('wipe-data');
+		var hour = document.getElementById('hour');
+		var miunte = document.getElementById('miunte');
+		var seconds = document.getElementById('seconds');
+		var heroic = document.getElementById('heroic');
+		
+		var qq
+		start.onclick = function (){
+			var CurrentTime = Date.parse(new Date);
+			if(qq !=undefined){
+				clearInterval(qq);
+			}
+			
+			 qq = setInterval(
+					function (){
+						var atHeroic = new Date();
+						heroic.innerHTML = atHeroic.getMilliseconds();
+						var atTheMoment = Date.parse(atHeroic);
+						var s=seconds.innerHTML = (atTheMoment - CurrentTime)/1000;
+						var a = seconds.innerHTML ;
+						seconds.innerHTML = resetZero(s);
+
+						if (a >= 10) {
+							miunte.innerHTML = resetZero(parseInt(miunte.innerHTML) +1);
+							seconds.innerHTML=resetZero(0);
+							CurrentTime = Date.parse(new Date());
+						};
+						var min = miunte.innerHTML;
+
+						if (min >= 10) {
+							hour.innerHTML = resetZero(parseInt(hour.innerHTML) +1);
+							miunte.innerHTML=resetZero(0);
+							CurrentTime = Date.parse(new Date());
+						};
+					}
+			,1);
+		// 	console.log(qq);
+
+		// 	wipeData.onclick=function(){
+		// 	// var CurrentTime = Date.parse(new Date);
+		// 	clearInterval(qq);
+		// 	hour.innerHTML='00';
+		// 	miunte.innerHTML='00';
+		// 	seconds.innerHTML='00';
+		// 	heroic.innerHTML='000';
+		// 	zhanting.innerHTML='';
+		// 	yanse.innerHTML = '';
+		
+		// }
+
+
+
+
+		}
+
+		stop.onclick = function(){
+			// var CurrentTime = Date.parse(new Date);
+			var stopTime=hour.innerHTML +':'+miunte.innerHTML+':'+seconds.innerHTML+'.'+heroic.innerHTML;
+			if (hour.innerHTML<=0) {
+				zhanting.style.color='red';
+				zhanting.innerHTML = zhanting.innerHTML+'<br>'+stopTime+'<br>';
+			}else{
+
+				yanse.innerHTML = yanse.innerHTML+'<br>'+stopTime+'<br>';
+
+				yanse.style.color='green';
+			}
+		}
+
+
+
+
+
+
+
+		reset.onclick = function(){
+			clearInterval(qq);
+			// CurrentTime = Date.parse(new Date);
+			hour.innerHTML='00';
+			miunte.innerHTML='00';
+			seconds.innerHTML='00';
+			heroic.innerHTML='000';
+
+		}
+
+
+
+		clear.onclick= function(){
+			// var CurrentTime = Date.parse(new Date);
+			clearInterval(qq);
+			console.log(123)
+		}
+
+
+
+
+		wipeData.onclick=function(){
+			
+			clearInterval(qq);
+			hour.innerHTML='00';
+			miunte.innerHTML='00';
+			seconds.innerHTML='00';
+			heroic.innerHTML='000';
+			zhanting.innerHTML='';
+			yanse.innerHTML = '';
+		
+		}
+
+
+
+function resetZero(x){
+	if (x<10) {
+		return '0' + x;
+	}else{
+		return x ;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

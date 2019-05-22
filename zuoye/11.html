@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="x">11111</div>
+
+
+<button id="top">点我一下</button>
+
+
+<script>
+
+    var x = document.getElementById('x');
+
+    console.dir(x);
+
+    x.innerHTML = x.innerHTML + '<img src="./2.jpg">';
+    x.style.color = 'red';
+    x.style.fontSize = '20px';
+
+    var btn = document.getElementById('top')
+
+    btn.onclick = function () {
+
+        x.style.color = 'green'
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

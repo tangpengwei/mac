@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="reset">重置</button>
+    <span id="h">00</span>
+    <span>:</span>
+    <span id="m">00</span>
+    <span>:</span>
+    <span id="s">00</span>
+    <span>.</span>
+    <span id="he">000</span>
+    <script type="text/javascript">
+        var start = document.getElementById('start');
+        var h = document.getElementById('h');
+        var m = document.getElementById('m');
+        var s = document.getElementById('s');
+        var reset = document.getElementById('reset');
+        var he = document.getElementById('he');
+        var q;
+        start.onclick=function(){
+            var dqsjc=Date.parse(new Date);
+           q= setInterval (
+                    function(){
+                        var w = new Date;
+                        he.innerHTML=w.getMilliseconds();
+                        var e = Date.parse(w);
+                        t=(e-dqsjc)/1000;
+                        s.innerHTML=resetZero(t);
+                        if (t>=4) {
+                            m.innerHTML=resetZero(parseInt(s.innerHTML,1))
+                        }
+                    }
+
+
+                ,1)   
+        }
+
+function resetZero(m){
+    if (m<10) {
+        return '0' + m;
+    }else{
+        return m;
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

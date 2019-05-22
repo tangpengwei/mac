@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /**
+     * 数组
+     */
+
+    var a = [];
+    console.log(a)
+    // console.log(typeof a)
+    a.push('111');
+    a.push('111');
+    a.push('111');
+    a.push('111');
+    a.push('111');
+
+    console.log(a);
+
+    var girls = [];
+
+    //
+    girls.push('赵丽颖');
+
+    girls.push('孙俪');
+
+    girls.push('如花');
+
+    console.log(girls)
+
+
+    console.log(girls[0]);
+    console.log(girls[1]);
+    console.log(girls[2]);
+
+    console.log('==================')
+    console.log(getStudent(girls))
+    
+    
+    // function myRandom() {
+    //     return Math.floor(Math.random() * 3)
+    // }
+    //
+    // console.log(girls[myRandom()])
+
+
+
+    var students = ['陈天赐', '唐鹏威', '毛宁博', '吴仁珂', '于济深', '王君柯', '卞莉'];
+
+
+    // function f() {
+    //     return Math.floor(Math.random() * students.length)
+    // }
+    //
+    // console.log(students[f()])
+    
+    function getStudent(st) {
+        return st[Math.floor(Math.random() * st.length)]
+    }
+    console.log(getStudent(students))
+    var b = ['张三', '王五', '小黑', '大傻'];
+    console.log(getStudent(b));
+
+    console.log(girls);
+    // 将数组中的最后一个值给移除
+    console.log(girls.pop());
+    console.log(girls);
+    // 从数组的末尾，向数组中添加一个或者多个值
+    girls.push('杨幂', '柳岩');
+    console.log(girls);
+
+
+    var c = girls.concat(b, students);
+    console.log(c);
+    console.log(girls);
+
+    // 从数组的头部移除数据
+    console.log(girls.shift());
+    console.log(girls);
+
+    // 从数组的头部往数组内写数据
+    console.log(girls.unshift('蔡徐坤女士', '鹿女士'))
+    girls.unshift('凤姐', '芙蓉姐姐');
+    console.log(girls);
+
+    // 翻转数组里面的值
+    girls.reverse();
+    console.log(girls)
+
+    //从数组中截取一个数组，并不会对原数组做出任何改变
+    console.log(girls.slice(0, 3))
+    console.log(girls);
+
+
+    // 从第2位开始，删除3个数组的元素， 会对原数组造成改变
+    // console.log(girls.splice(2, 3));
+    // 从第2位开始，删除3个数组的元素， 并在删除的位置上添加新的元素
+    console.log(girls.splice(2, 3, '杨颖', '迪丽热巴'));
+    console.log(girls);
+
+
+    var c = ['xx', '334', 'hh', 'ddd'];
+    c.sort();
+    console.log(c);
+
+
+    console.log(girls.join());
+
+    var d = girls.join('-');
+    console.log(d);
+
+    console.log(d.split('-'))
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+</script>
+</body>
+</html>
